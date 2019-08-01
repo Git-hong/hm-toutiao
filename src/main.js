@@ -8,6 +8,7 @@ import App from './App.vue'
 // 引入Element-ui
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import '@/style/index.less'
 
 // @是别名
 import router from '@/router'
