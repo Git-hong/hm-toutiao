@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <el-card class="my-card">
-      <img src="../../assets/images/logo_index.png" alt="">
+      <img src="../../assets/images/logo_index.png" alt />
       <!-- 表单 -->
       <el-form :model="loginForm">
         <el-form-item>
@@ -16,7 +16,7 @@
         <el-form-item>
           <el-input></el-input>
         </el-form-item>
-      <el-form>
+      </el-form>
     </el-card>
   </div>
 </template>
