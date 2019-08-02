@@ -62,9 +62,11 @@ export default {
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
           // 请求登录接口
-          this.$http.post('http://ttapi.research.itcast.cn/mp/v1_0/articles', this.loginForm).then(res => {
+          this.$http.post('http://ttapi.research.itcast.cn/mp/v1_0/authorizations', this.loginForm).then(res => {
             // 响应对象（包含响应主体）
-            console.log(res.data)
+            // console.log(res.data)
+            // 跳转去首页
+            this.$router.push('/')
           }).catch(() => {
             // 错误提示
             this.$message.error('手机号或验证码错误')
