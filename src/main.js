@@ -13,6 +13,9 @@ import '@/style/index.less'
 // @是别名
 import router from '@/router'
 
+import axios from 'axios'
+Vue.prototype.$http = axios
+
 // tip 提示信息  production 生成环境
 Vue.config.productionTip = false // 按开发(详细一些)环境来提示
 Vue.use(ElementUI)
