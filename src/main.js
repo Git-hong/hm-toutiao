@@ -13,7 +13,7 @@ import '@/style/index.less'
 // @是别名
 import router from '@/router'
 
-import axios from 'axios'
+import axios from '@/api'
 Vue.prototype.$http = axios
 
 // tip 提示信息  production 生成环境

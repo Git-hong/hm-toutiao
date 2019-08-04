@@ -4,7 +4,9 @@ import Vue from 'vue'
 import Login from '@/views/login'
 import Home from '@/views/home'
 import Welcome from '@/views/welcome'
-// import NOtFound from '@/views/notfound'
+import Article from '@/views/article'
+import NOtFound from '@/views/404'
+import store from '@/store'
 
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -16,22 +18,26 @@ const router = new VueRouter({
       path: '/',
       component: Home,
       children: [
-        { path: '/', name: 'welcome', component: Welcome }
+        { path: '/', name: 'welcome', component: Welcome },
+        { path: '/article', name: 'article', component: Article }
       ]
-    }
+    },
+
     // 处理404
-    // { path: '*', name: '404', component: NOtFound }
+    { path: '*', name: '404', component: NOtFound }
   ]
 })
 
-// 前置导航守卫
-// router.beforeEach((to, from, next) => {
+// 前置导航守卫   监听到跳转路由前
+router.beforeEach((to, from, next) => {
 //   // 判断是不是登录路由
 //   if (to.path === '/login') return next()
 //   // 2 判断是否登录
-//   if (!StorageEvent.getUser().token) return next('/login')
+//   if (!store.getUser().token) return next('/login')
 //   // 3 放行
 //   next()
-// })
+  if (to.path === '/login' && !store.getUser().token) return next('/login')
+  next()
+})
 
 export default router
