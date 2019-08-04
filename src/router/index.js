@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Login from '@/views/login'
 import Home from '@/views/home'
 import Welcome from '@/views/welcome'
+// import NOtFound from '@/views/notfound'
 
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -18,7 +19,19 @@ const router = new VueRouter({
         { path: '/', name: 'welcome', component: Welcome }
       ]
     }
+    // 处理404
+    // { path: '*', name: '404', component: NOtFound }
   ]
 })
+
+// 前置导航守卫
+// router.beforeEach((to, from, next) => {
+//   // 判断是不是登录路由
+//   if (to.path === '/login') return next()
+//   // 2 判断是否登录
+//   if (!StorageEvent.getUser().token) return next('/login')
+//   // 3 放行
+//   next()
+// })
 
 export default router
