@@ -36,7 +36,7 @@ router.beforeEach((to, from, next) => {
 //   if (!store.getUser().token) return next('/login')
 //   // 3 放行
 //   next()
-  if (to.path === '/login' && !store.getUser().token) return next('/login')
+  if (to.path !== '/login' && !store.getUser().token) return next('/login')
   next()
 })
 
