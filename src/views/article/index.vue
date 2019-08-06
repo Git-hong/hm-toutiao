@@ -41,7 +41,22 @@
     </el-card>
     <!-- 筛选结果 -->
     <!-- 标签中的内容 成为插槽内容 -->
-    <my-test></my-test>
+    <el-card>
+      <div slot="header">根据筛选条件共查询到0条结果</div>
+      <!-- 表格组件 -->
+      <el-table :data="articles">
+        <el-table-column prop="img" label="封面" width="180"></el-table-column>
+        <el-table-column prop="title" label="标题" width="180"></el-table-column>
+        <el-table-column prop label="状态"></el-table-column>
+        <el-table-column prop label="发布时间"></el-table-column>
+        <el-table-column prop label="操作"></el-table-column>
+      </el-table>
+      <!-- 分页组件 -->
+      <div style="text-align:center;margin-top:30px">
+        <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>
+      </div>
+
+    </el-card>
   </div>
 </template>
 
@@ -57,11 +72,22 @@ export default {
       // 频道下拉选项数据
       channelOptions: [{ value: 1, label: 'js' }],
       // 日期数据
-      dateArr: ''
+      dateArr: [],
+      // 文章列表
+      articles: [
+        {
+          img: '',
+          name: '',
+          address: ''
+        }
+      ]
     }
   }
 }
 </script>
 
 <style scoped lang="less">
+.el-card {
+  margin-bottom: 20px;
+}
 </style>
