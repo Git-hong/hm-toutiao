@@ -14,6 +14,11 @@ import '@/style/index.less'
 import router from '@/router'
 
 import axios from '@/api'
+
+// 自己的插件使用
+import components from '@/components'
+Vue.use(components)
+
 Vue.prototype.$http = axios
 
 // tip 提示信息  production 生成环境
