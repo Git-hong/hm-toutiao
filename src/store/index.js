@@ -4,8 +4,10 @@
 const KEY = 'hm-toutiao'
 export default {
   setUser (user) {
+    const localuser = this.getUser()
     // 存储用户信息到sessionStorage
-    window.sessionStorage.setItem(KEY, JSON.stringify(user))
+    const nowUser = { ...localuser, ...user }
+    window.sessionStorage.setItem(KEY, JSON.stringify(nowUser))
   },
   getUser () {
     // 获取用户信息从sessionStorage
